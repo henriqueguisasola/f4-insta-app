@@ -22,16 +22,16 @@ export class FormNovoPost extends React.Component {
     };
   }
 
-  atualizaFotoUsuario = event => {
-    this.setState({ valorFotoUsuario: event.target.value });
+  atualizaFotoUsuario = text => {
+    this.setState({ valorFotoUsuario: text });
   };
 
-  atualizaNomeUsuario = event => {
-    this.setState({ valorNomeUsuario: event.target.value });
+  atualizaNomeUsuario = text => {
+    this.setState({ valorNomeUsuario: text });
   };
 
-  atualizaURLImagem = event => {
-    this.setState({ valorURLImagem: event.target.value });
+  atualizaURLImagem = text => {
+    this.setState({ valorURLImagem: text });
   };
 
   onClicarEnviar = () => {
@@ -55,21 +55,21 @@ export class FormNovoPost extends React.Component {
           type="text"
           placeholder="Foto do usuário"
           value={this.state.valorFotoUsuario}
-          onChange={this.atualizaFotoUsuario}
+          onChangeText={this.atualizaFotoUsuario}
         />
         <TextInput
           type="text"
           placeholder="Nome do usuário"
           value={this.state.valorNomeUsuario}
-          onChange={this.atualizaNomeUsuario}
+          onChangeText={this.atualizaNomeUsuario}
         />
         <TextInput
           type="text"
           placeholder="URL da imagem"
           value={this.state.valorURLImagem}
-          onChange={this.atualizaURLImagem}
+          onChangeText={this.atualizaURLImagem}
         />
-        <Button onClick={this.onClicarEnviar} title={'Enviar'}></Button>
+        <Button onPress={this.onClicarEnviar} title={'Enviar'}></Button>
       </FormContainer>
     );
   }

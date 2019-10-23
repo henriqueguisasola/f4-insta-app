@@ -1,5 +1,5 @@
 import React from 'react'
-import { View, Image, Text } from 'react-native'
+import { View, Image, Text, TouchableOpacity } from 'react-native'
 import styled from 'styled-components'
 
 const ActionContainer = styled(View)`
@@ -16,7 +16,9 @@ const ImageContainer = styled(Image)`
 
 export function PostAction(props) {
   return <ActionContainer>
-    <ImageContainer source={props.icone} onClick={props.onClick}/>
+    <TouchableOpacity onPress={props.onClick}>
+      <ImageContainer source={props.icone} />
+    </TouchableOpacity>
     <Text>{props.numero}</Text>
   </ActionContainer>
 }
