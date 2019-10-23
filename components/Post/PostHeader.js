@@ -5,6 +5,7 @@ import styled from 'styled-components'
 const HeaderContainer = styled(View)`
   padding-left: 5px;
   display: flex;
+  flex-direction: row;
   align-items: center;
   height: 40px;
 `
@@ -18,7 +19,7 @@ const UserPicture = styled(Image)`
 
 export function PostHeader(props) {
   return <HeaderContainer>
-    <UserPicture src={props.fotoUsuario}/>
+    <UserPicture source={{ uri: props.fotoUsuario }}/>
     <Text>{props.nomeUsuario}</Text>
   </HeaderContainer>
 }

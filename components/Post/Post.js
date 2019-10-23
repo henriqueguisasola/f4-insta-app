@@ -11,6 +11,7 @@ const PostContainer = styled(View)`
 
 const PostImage = styled(Image)`
   width: 100%;
+  height: 200px;
 `;
 
 export function Post(props) {
@@ -26,7 +27,7 @@ export function Post(props) {
         fotoUsuario={post.urlFotoUsuario}
         nomeUsuario={post.nomeUsuario}
       />
-      <PostImage src={post.urlImagem} />
+      <PostImage source={{ uri: post.urlImagem }} />
       <PostFooter
         numeroCurtidas={post.numeroCurtidas}
         curtidoPorMim={post.curtidoPorMim}
