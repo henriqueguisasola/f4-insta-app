@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View } from 'react-native'
+import { SafeAreaView } from 'react-native'
+import Constants from 'expo-constants';
 import {InstaContainer} from './components/InstaContainer/InstaContainer'
 
 const listaDePosts = [{
@@ -45,9 +46,12 @@ export default class App extends Component {
 
   render() {
     return (
-      <View>
+      <SafeAreaView style={{
+        flex: 1,
+        marginTop: Constants.statusBarHeight,
+      }}>
         <InstaContainer listaDePosts={listaDePosts}/>
-      </View>
+      </SafeAreaView>
     );
   }
 }

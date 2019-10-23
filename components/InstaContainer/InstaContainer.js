@@ -1,10 +1,12 @@
 import React from "react";
-import { View } from 'react-native'
+import { View, FlatList } from 'react-native'
 import { FormNovoPost } from "../FormNovoPost/FormNovoPost";
 import { Post } from "../Post/Post";
 import styled from "styled-components";
 
-const MainContainer = styled(View)``;
+const MainContainer = styled(View)`
+  flex: 1;
+`;
 
 export class InstaContainer extends React.Component {
   constructor(props) {
@@ -50,14 +52,14 @@ export class InstaContainer extends React.Component {
   }
   
   render() {
-    const listaPosts = this.state.listaDePosts.map(cadaPost => {
-      return <Post post={cadaPost} curtirPost={this.curtirPost} />;
-    });
-
     return (
       <MainContainer>
         <FormNovoPost criarPost={this.adicionarPost}/>
-        {listaPosts}
+        <FlatList
+          data={this.state.listaDePosts}
+          renderItem={({ item }) => <Post post={item} curtirPost={this.curtirPost} />}
+          keyExtractor={item => item.id.toString()}
+        />
       </MainContainer>
     );
   }
